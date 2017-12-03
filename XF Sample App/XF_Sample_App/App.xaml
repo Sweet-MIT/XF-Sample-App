@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:XF_Sample_App.ViewModel"
+             x:Class="XF_Sample_App.App"
+             xmlns:ex="clr-namespace:XF_Sample_App.Extensions">
+
+    <Application.Resources>
+
+        <ResourceDictionary>
+            
+            <vm:ViewModelLocator x:Key="Locator" />
+
+            <OnPlatform x:Key="LabelSize"
+                        x:TypeArguments="x:Double" 
+                        iOS="20.0" 
+                        Android="20.0"
+                        WinPhone="14.0" />
+
+            <Style x:Key="SummaryStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#23282d"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="0,0,0,7"              />
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="{DynamicResource LabelSize}"/>
+            </Style>
+
+            <Style x:Key="LbGrayStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#23282d"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="7,15,7,0"              />
+                <Setter Property="HorizontalTextAlignment" Value="Start"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="15"/>
+                <Setter Property="HeightRequest" Value="40"/>
+            </Style>
+                        
+            <Style x:Key="HomeLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#7E1335"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="End"/>
+                <Setter Property="Margin" Value="7,0,0,5"              />
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+                <Setter Property="FontSize" Value="16"/>
+            </Style>
+
+            <Style x:Key="HomeImageStyle" TargetType="Image">
+                <Setter Property="HeightRequest" Value="100"/>
+                <Setter Property="WidthRequest" Value="100"/>
+                <Setter Property="MinimumHeightRequest" Value="100"/>
+                <Setter Property="MinimumWidthRequest" Value="100"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+
+            <Style x:Key="GridCellStyle" TargetType="Grid">
+                <Setter Property="BackgroundColor" Value="#ffdfdfe0"/>
+                <Setter Property="Margin" Value="0,0,4,4"/>
+            </Style>
+
+            <Style x:Key="ListViewItemTextBlockStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#ffffff" />
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="FontFamily" Value="Segoe UI" />
+            </Style>
+
+            <Style x:Key="ListViewItemSubheaderTextBlockStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#ffffff" />
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontFamily" Value="Segoe UI" />
+            </Style>
+
+            <DataTemplate x:Key="MemberItemTemplate">
+                
+                <ViewCell>
+                    
+                    <ViewCell.View>
+
+                        <Grid BackgroundColor="#333">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <StackLayout Grid.Column="0"                                          
+                                         Spacing="0"
+                                         VerticalOptions="Center"    
+                                         HorizontalOptions="Center"
+                                         BackgroundColor="#7E1335">
+
+                                <Image Source="{ex:ImageResource ic_member.png}"                                                             
+                                       HeightRequest="60"                                                               
+                                       WidthRequest="60"                                       
+                                       VerticalOptions = "Center"/>
+
+                            </StackLayout>
+
+                            <StackLayout Grid.Column="1"
+                                         Spacing="0"
+                                         Margin="1,0,0,0" 
+                                         VerticalOptions="Center">
+
+                                <Label Text="{Binding Path=FullName}" 
+                                       LineBreakMode="TailTruncation"
+                                       Style="{StaticResource ListViewItemTextBlockStyle}"/>
+
+                                <Label Text="{Binding Path=Post}"
+                                       LineBreakMode="TailTruncation"
+                                       Style="{StaticResource ListViewItemSubheaderTextBlockStyle}"/>
+
+                            </StackLayout>
+
+                        </Grid>
+                        
+                    </ViewCell.View>
+                    
+                </ViewCell>
+                
+            </DataTemplate>
+
+        </ResourceDictionary>
+                
+    </Application.Resources>
+
+</Application>

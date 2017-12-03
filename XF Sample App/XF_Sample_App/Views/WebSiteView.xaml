@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF_Sample_App.Views.WebSiteView"
+             Title="Web Site"
+             BindingContext="{Binding Web, Source={StaticResource Locator}}">
+    
+    <ContentPage.Content>
+        
+      <StackLayout Spacing="1"
+                   VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand">
+          
+            <WebView Source="{Binding Path=SiteURL, Mode=TwoWay}"
+                     VerticalOptions="FillAndExpand"
+                     HorizontalOptions="FillAndExpand"/>
+          
+        </StackLayout>
+        
+  </ContentPage.Content>
+    
+</ContentPage>

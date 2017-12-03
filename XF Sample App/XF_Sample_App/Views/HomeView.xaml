@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XF_Sample_App.Views.HomeView"
+             Title="Home"
+             xmlns:ex="clr-namespace:XF_Sample_App.Extensions"
+             BindingContext="{Binding Home, Source={StaticResource Locator}}">
+
+    <Grid Margin="0,0,0,0"
+          HorizontalOptions="Center"
+          VerticalOptions="Center">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="130"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="130" />
+            <ColumnDefinition Width="130" />
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="lbAppTitle" 
+               Text="{Binding Path=Summary}"
+               Style="{StaticResource SummaryStyle}">
+        </Label>
+
+        <Grid Grid.Row="1" 
+              Grid.Column="0"
+              Style="{StaticResource GridCellStyle}">
+
+            <Image Source="{ex:ImageResource ic_about.png}"
+                   Style="{StaticResource HomeImageStyle}"/>
+
+            <Label Text="About"                            
+                   Style="{StaticResource HomeLabelStyle}" />
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding OnGridViewTappedCommand}"
+                                      CommandParameter="0"/>
+            </Grid.GestureRecognizers>
+
+        </Grid>
+
+        <Grid Grid.Row="1" 
+              Grid.Column="1" 
+              Style="{StaticResource GridCellStyle}">
+
+            <Image Source="{ex:ImageResource ic_managers.png}"
+                   Style="{StaticResource HomeImageStyle}"/>
+
+            <Label Text="Managers"      
+                   Style="{StaticResource HomeLabelStyle}"/>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding OnGridViewTappedCommand}"
+                                      CommandParameter="1" />
+            </Grid.GestureRecognizers>
+
+        </Grid>
+
+        <Grid Grid.Row="2" 
+              Grid.Column="0" 
+              Style="{StaticResource GridCellStyle}">
+
+            <Image Source="{ex:ImageResource ic_members.png}"
+                   Style="{StaticResource HomeImageStyle}" />
+
+            <Label Text="Members"     
+                   Style="{StaticResource HomeLabelStyle}"/>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding OnGridViewTappedCommand}"
+                                      CommandParameter="2" />
+            </Grid.GestureRecognizers>
+
+        </Grid>
+
+        <Grid Grid.Row="2" 
+              Grid.Column="1" 
+              Style="{StaticResource GridCellStyle}">
+
+            <Image Source="{ex:ImageResource ic_expertise.png}"
+                   Style="{StaticResource HomeImageStyle}" />
+
+            <Label Text="Expertise"     
+                   Style="{StaticResource HomeLabelStyle}"/>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding OnGridViewTappedCommand}"
+                                      CommandParameter="3" />
+            </Grid.GestureRecognizers>
+
+        </Grid>
+
+        <Grid Grid.Row="3" 
+              Grid.Column="0" 
+              Style="{StaticResource GridCellStyle}">
+
+            <Image Source="{ex:ImageResource ic_location.png}"
+                   Style="{StaticResource HomeImageStyle}"/>
+
+            <Label Text="Contact"     
+                   Style="{StaticResource HomeLabelStyle}"/>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding OnGridViewTappedCommand}"
+                                      CommandParameter="4" />
+            </Grid.GestureRecognizers>
+
+        </Grid>
+
+        <Grid Grid.Row="3" 
+              Grid.Column="1" 
+              Style="{StaticResource GridCellStyle}">
+
+            <Image Source="{ex:ImageResource ic_web_site.png}"
+                   Style="{StaticResource HomeImageStyle}" />
+
+            <Label Text="Web site"   
+                   Style="{StaticResource HomeLabelStyle}"/>
+
+            <Grid.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding OnGridViewTappedCommand}"
+                                      CommandParameter="5" />
+            </Grid.GestureRecognizers>
+
+        </Grid>
+
+        <Label Grid.Row="4"
+               Grid.ColumnSpan="2"
+               Text="Copyright © Sweet MIT. All rights reserved."
+               Style="{StaticResource LbGrayStyle}"
+               VerticalOptions="EndAndExpand"
+               HorizontalOptions="CenterAndExpand"/>
+
+    </Grid>
+
+</ContentPage>

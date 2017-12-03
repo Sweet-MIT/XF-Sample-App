@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Expertise"
+             xmlns:controls="clr-namespace:XF_Sample_App.Controls"
+             x:Class="XF_Sample_App.Views.ExpertiseView"             
+             BindingContext="{Binding Expertise, Source={StaticResource Locator}}">
+    
+    <ContentPage.Content>
+
+        <StackLayout VerticalOptions="FillAndExpand">
+
+            <Label Text="{Binding Path=ExpertiseText, Mode=TwoWay}"
+                   Style="{StaticResource LbGrayStyle}">
+            </Label>
+
+            <Label Text="Copyright © Sweet MIT. All rights reserved."
+                   Style="{StaticResource LbGrayStyle}"
+                   VerticalOptions="EndAndExpand"
+                   HorizontalOptions="CenterAndExpand"
+                   HeightRequest="40"/>
+            
+        </StackLayout>
+        
+    </ContentPage.Content>
+    
+</ContentPage>
